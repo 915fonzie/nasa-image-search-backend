@@ -1,14 +1,13 @@
 class NasasController < ApplicationController
 
     def search
-        @files = Nasa.search_by_term(params[:query]).paginate(page: params[:page], per_page: 15)
-
+        @files = Nasa.search_by_term(params[:query]).paginate(page: params[:page], per_page: params[:perPage])
+        #if statements are being used to filter the search parameters
         if params[:media]
             @files.select! do |file|
                 file[:media_type] == params[:media]
             end
         end
-
         if params[:startDate] && params[:endDate]
             @files.select! do |file|
                 temp = file[:date_created].split('T')[0] 
@@ -26,11 +25,11 @@ class NasasController < ApplicationController
         @file = Nasa.find_by(id: params[:id])
 
         render json: {
-            file: include: {
+            file: @file.as_json(include: {
                 keywords: {only: [:phrase]},
                 hrefs: {only: [:image_size_url]}
-            }
+            })
         }
     end
-    
+
 end
