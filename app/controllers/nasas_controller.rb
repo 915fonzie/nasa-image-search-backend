@@ -14,13 +14,14 @@ class NasasController < ApplicationController
                 temp >= params[:startDate] && temp <= params[:endDate]
             end
         end
+        #using :only to optimize the amount of information that needs to be sent
         render json: {
             file: @files.as_json(only: [:title, :thumb_url]),
             page: @files.current_page,
             pages: @files.total_pages
         }
     end
-
+    #using :include to get data from nested models
     def show
         @file = Nasa.find_by(id: params[:id])
 
