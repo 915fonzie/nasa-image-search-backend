@@ -52,5 +52,5 @@ Rails.application.configure do
 
   # Stop the development & test logs from taking up to much space
   # https://stackoverflow.com/questions/7784057/ruby-on-rails-log-file-size-too-large/37499682#37499682
-  config.logger = ActiveSupport::Logger.new(config.paths['log'].first, 1, 50.megabytes)
+  config.logger = ActiveSupport::Logger.new(config.paths['log'].first, 1, 50*1024*1024)
 end

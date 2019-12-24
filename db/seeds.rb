@@ -36,7 +36,7 @@ end
         if valid_json?(images_response)
             images_result = JSON.parse(images_response)
             images_result.each do |image_href|
-                corrected_image_href = URI::escape(images_href)
+                corrected_image_href = URI::escape(image_href)
                 Href.create(image_size_url: corrected_image_href, nasa_id: image.id)
             end
         end

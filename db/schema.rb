@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_20_071147) do
+ActiveRecord::Schema.define(version: 2019_12_20_070654) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,19 +31,12 @@ ActiveRecord::Schema.define(version: 2019_12_20_071147) do
 
   create_table "nasas", force: :cascade do |t|
     t.string "title"
-    t.string "photographer"
     t.text "description"
+    t.string "photographer"
     t.string "location"
     t.string "media_type"
     t.string "date_created"
     t.string "thumb_url"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "user_searches", force: :cascade do |t|
-    t.string "search"
-    t.integer "nasa_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

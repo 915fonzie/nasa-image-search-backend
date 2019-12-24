@@ -5,4 +5,8 @@ class NasasController < ApplicationController
         render json: @files 
     end
 
+    def show
+
+    end
+
 end
