@@ -1,3 +1,0 @@
-class HrefsController < ApplicationController
-   
-end
