@@ -43,8 +43,8 @@ end
         end
 
         if item['data'][0]['keywords']
-            item['data'][0]['keywords'].each do |href|
-                Keyword.create(phrase: href, nasa_id: image.id) #This creates the keywords for each item
+            item['data'][0]['keywords'].each do |keyword|
+                Keyword.create(phrase: keyword, nasa_id: image.id) #This creates the keywords for each item
             end
         end
         counter = counter + 1

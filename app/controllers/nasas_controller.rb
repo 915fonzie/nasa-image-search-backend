@@ -13,7 +13,7 @@ class NasasController < ApplicationController
             end
         end
         render json: {
-            file: @files.as_json(only: [:title, :thumb_url]), #using :only to optimize the amount of information that needs to be sent
+            file: @files.as_json(only: [:id, :title, :thumb_url]), #using :only to optimize the amount of information that needs to be sent
             page: @files.current_page,
             pages: @files.total_pages
         }
